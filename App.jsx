@@ -1,14 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+// App.jsx
+import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AppNavigator from './src/navigation/AppNavigator';
 
-const Moodbro = () => {
-  return (
-    <View>
-      <Text>Moodbro</Text>
-    </View>
-  )
-}
+const App = () => (
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    <AppNavigator />
+  </GestureHandlerRootView>
+);
 
-export default Moodbro
-
-const styles = StyleSheet.create({})
+export default App;
