@@ -5,6 +5,11 @@ import { View, Text } from 'react-native';
 import SplashScreen from '../screens/SplashScreens/SplashScreen';
 import FetchingDataScreen from '../screens/SplashScreens/FetchingDataScreen';
 import QuoteScreen from '../screens/SplashScreens/QuoteScreen';
+import Onboarding1 from '../screens/Onboarding/Onboarding1';
+import Onboarding2 from '../screens/Onboarding/Onboarding2';
+import Onboarding3 from '../screens/Onboarding/Onboarding3';
+import Onboarding4 from '../screens/Onboarding/Onboarding4';
+import Onboarding5 from '../screens/Onboarding/Onboarding5';
 
 
 
@@ -22,6 +27,11 @@ const AppNavigator = () => (
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="FetchingData" component={FetchingDataScreen} />
       <Stack.Screen name="Quote" component={QuoteScreen} />
+      <Stack.Screen name="Onboarding1" component={Onboarding1} />
+<Stack.Screen name="Onboarding2" component={Onboarding2} />
+<Stack.Screen name="Onboarding3" component={Onboarding3} />
+<Stack.Screen name="Onboarding4" component={Onboarding4} />
+<Stack.Screen name="Onboarding5" component={Onboarding5} />
 
     </Stack.Navigator>
   </NavigationContainer>
