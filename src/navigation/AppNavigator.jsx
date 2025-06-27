@@ -10,6 +10,9 @@ import Onboarding2 from '../screens/Onboarding/Onboarding2';
 import Onboarding3 from '../screens/Onboarding/Onboarding3';
 import Onboarding4 from '../screens/Onboarding/Onboarding4';
 import Onboarding5 from '../screens/Onboarding/Onboarding5';
+import SignInScreen from '../screens/LoginPages/SignInScreen';
+import SignUpScreen from '../screens/LoginPages/SignUpScreen';
+import ForgotPasswordScreen from '../screens/LoginPages/ForgotPasswordScreen';
 
 
 
@@ -32,6 +35,9 @@ const AppNavigator = () => (
 <Stack.Screen name="Onboarding3" component={Onboarding3} />
 <Stack.Screen name="Onboarding4" component={Onboarding4} />
 <Stack.Screen name="Onboarding5" component={Onboarding5} />
+<Stack.Screen name="SignInScreen" component={SignInScreen} />
+<Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+<Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
 
     </Stack.Navigator>
   </NavigationContainer>
