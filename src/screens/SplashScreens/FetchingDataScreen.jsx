@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, Text, StyleSheet, View } from 'react-native';
+import { Animated, Text, StyleSheet, View, Platform } from 'react-native';
 
 const FetchingDataScreen = ({ navigation }) => {
   const fade = useRef(new Animated.Value(0)).current;
@@ -14,20 +14,17 @@ const FetchingDataScreen = ({ navigation }) => {
 
   // Circle configurations - properly centered
   const circles = [
-    { top: 50, left: '50%', marginLeft: -125 }, // Top circle - centered horizontally
-    { bottom: 50, left: '50%', marginLeft: -125 }, // Bottom circle - centered horizontally
+    { top: -125, left: '50%', marginLeft: -125 }, // Top circle - centered horizontally
+    { bottom: -125, left: '50%', marginLeft: -125 }, // Bottom circle - centered horizontally
     { left: -125, top: '50%', marginTop: -125 }, // Left circle - centered vertically
     { right: -125, top: '50%', marginTop: -125 }, // Right circle - centered vertically
-    // { width: 70, height: 70, top: '15%', right: "45%", opacity: 0.3 },
-    // { width: 90, height: 90, bottom: '15%', left: 70, opacity: 0.4 },
-    // { width: 70, height: 70, top: '75%', right: 60, opacity: 0.6 },
   ];
 
   useEffect(() => {
     // Start with fade in animation
     Animated.timing(fade, {
       toValue: 1,
-      duration: 5,
+      duration: 500,
       useNativeDriver: true,
     }).start();
 
@@ -46,7 +43,7 @@ const FetchingDataScreen = ({ navigation }) => {
 
     const timer = setTimeout(() => {
       navigation.navigate('Quote');
-    }, 4200);
+    }, 2200);
 
     return () => clearTimeout(timer);
   }, [fade, navigation, circleAnims]);
@@ -115,27 +112,24 @@ const styles = StyleSheet.create({
     width: 250,
     height: 250,
     backgroundColor: '#93A99D', 
-    borderRadius: 125, // Updated to match width/height
+    borderRadius: 125,
     position: 'absolute',
-    // iOS Shadow
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
     shadowRadius: 15,
-    // Android Shadow
     elevation: 10,
   },
   textstyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'plusJakartaSans',
+    fontFamily: 'PlusJakartaSans-Bold',
     fontSize: 40,
     fontWeight: '700',
     fontStyle: 'normal',
     letterSpacing: -2,
     color: 'white',
     zIndex: 2,
-    // Add text shadow for better visibility
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 4,

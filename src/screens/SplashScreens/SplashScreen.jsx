@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, Animated } from 'react-native';
 
 const SplashScreen = ({ navigation }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity 0
-const scaleAnim = useRef(new Animated.Value(0.8)).current;
+
   useEffect(() => {
     console.log('SplashScreen mounted');
     
@@ -39,31 +39,15 @@ const scaleAnim = useRef(new Animated.Value(0.8)).current;
         resizeMode="contain"
       />
       <Animated.Text 
-              style={[
-                styles.quote,
-                {
-                  opacity: fadeAnim,
-                  transform: [
-                    { 
-                      scale: scaleAnim.interpolate({
-                        inputRange: [0.8, 1],
-                        outputRange: [0.9, 1],
-                      })
-                    },
-                    {
-                      translateY: fadeAnim.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [30, 0],
-                      })
-                    }
-                  ]
-                }
-              ]}
-            >
-              "Decode your feels. Upgrade your flow."
-            </Animated.Text>
-            
-      {/* <Text style={styles.text}>🌞 SplashScreen is alive!</Text> */}
+        style={[
+          styles.quote,
+          {
+            opacity: fadeAnim,
+          }
+        ]}
+      >
+        "Decode your feels. Upgrade your flow."
+      </Animated.Text>
     </View>
   );
 };
@@ -71,41 +55,27 @@ const scaleAnim = useRef(new Animated.Value(0.8)).current;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#FFA726',
     justifyContent: 'center',
     alignItems: 'center',
     width: "100%",
-		height: "100%",
-    // justifyContent: 'center',
-    // alignItems: 'center', 
-		backgroundColor: "#2E5452",
-		// marginRight: 48,
-		// borderRadius: 40,
+    height: "100%",
+    backgroundColor: "#2E5452",
   },
-   quote: {
+  quote: {
     width: 400,
-    fontFamily: 'plusJakartaSans',
+    fontFamily: 'plusJakartaSans, System',
     fontSize: 24,
-    // fontWeight: '600',
     fontStyle: 'italic',
     lineHeight: 32,
     letterSpacing: -2,
     textAlign: 'center',
     color: '#B4C48D',
-    // zIndex: 10,
-    // fontStyle: 'italic',
-    // textShadowColor: 'rgba(0, 0, 0, 0.5)',
-    // textShadowOffset: { width: 1, height: 2 },
-    // textShadowRadius: 6,
   },
-  logo:{
+  logo: {
     width: 200,
-		height: 200,
-		// marginTop: 312,
-		// marginBottom: 312,
+    height: 200,
     justifyContent: 'center',
     alignItems: 'center',
-		// marginHorizontal: 150,
   }
 });
 

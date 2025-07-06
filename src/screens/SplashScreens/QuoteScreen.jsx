@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   quote: {
     width: 400,
-    fontFamily: 'plusJakartaSans',
+    fontFamily: 'plusJakartaSans, System',
     fontSize: 28,
     fontWeight: '600',
     fontStyle: 'italic',
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 6,
   },
   author: {
-    fontFamily: 'plusJakartaSans',
+    fontFamily: 'plusJakartaSans, System',
     fontSize: 16,
     fontStyle: 'italic',
     fontWeight: '600',
