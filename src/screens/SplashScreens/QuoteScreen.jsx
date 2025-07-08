@@ -4,6 +4,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Image, Animated, Platform } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const QuoteScreen = () => {
   // Animation refs
@@ -204,11 +205,11 @@ const styles = StyleSheet.create({
   },
   quote: {
     width: '90%',
-    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
-    fontSize: 28,
+    fontFamily: FONTS.SONGBIRD,
+    fontSize: 32,
     fontWeight: '600',
     fontStyle: 'italic',
-    lineHeight: 32,
+    lineHeight: 38,
     letterSpacing: 1,
     textAlign: 'center',
     color: '#FFFFFF',
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 6,
   },
   author: {
-    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
     fontSize: 16,
     fontStyle: 'italic',
     fontWeight: '600',

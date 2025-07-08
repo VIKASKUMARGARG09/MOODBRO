@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text } from 'react-native';
 import SplashScreen from '../screens/SplashScreens/SplashScreen';
 import FetchingDataScreen from '../screens/SplashScreens/FetchingDataScreen';
 import QuoteScreen from '../screens/SplashScreens/QuoteScreen';
@@ -13,16 +12,11 @@ import Onboarding5 from '../screens/Onboarding/Onboarding5';
 import SignInScreen from '../screens/LoginPages/SignInScreen';
 import SignUpScreen from '../screens/LoginPages/SignUpScreen';
 import ForgotPasswordScreen from '../screens/LoginPages/ForgotPasswordScreen';
+import FontTestScreen from '../screens/FontTestScreen';
 
 
 
 const Stack = createStackNavigator();
-
-const TestScreen = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'purple' }}>
-    <Text style={{ color: 'white', fontSize: 20 }}>Test Screen Renders ✅</Text>
-  </View>
-);
 
 const AppNavigator = () => (
   <NavigationContainer>
@@ -38,6 +32,7 @@ const AppNavigator = () => (
 <Stack.Screen name="SignInScreen" component={SignInScreen} />
 <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
 <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
+<Stack.Screen name="FontTest" component={FontTestScreen} />
 
     </Stack.Navigator>
   </NavigationContainer>

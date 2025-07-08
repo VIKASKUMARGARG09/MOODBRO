@@ -56,6 +56,10 @@
     {
       "path": "assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf",
       "sha1": "83f79b6c310f8d00fc74beb985452c4068d08437"
+    },
+    {
+      "path": "assets/fonts/Songbird.otf",
+      "sha1": "76d8ef98b547ae6d2604c442a19648395295fd57"
     }
   ]
 }

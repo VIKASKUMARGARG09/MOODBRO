@@ -10,6 +10,7 @@ import {
   ImageBackground,
   Platform
 } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const FindFelloLogin = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -64,8 +65,9 @@ const FindFelloLogin = ({ navigation }) => {
             secureTextEntry
             value={password}
             onChangeText={setPassword}
+            
           />
-
+        
           <TouchableOpacity onPress={() => navigation.navigate('ForgotPasswordScreen')}>
             <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -81,7 +83,7 @@ const FindFelloLogin = ({ navigation }) => {
               <Image source={require('../../../assets/icons/google.png')} style={styles.socialIcon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialBtn}>
-              <Image source={require('../../../assets/icons/fb.png')} style={styles.socialIcon} />
+              <Image source={require('../../../assets/icons/facebook.png')} style={styles.socialIcon} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialBtn}>
               <Image source={require('../../../assets/icons/insta.png')} style={styles.socialIcon} />
@@ -117,11 +119,12 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   headerTitle: {
-    fontSize: 52,
-    fontWeight: '700',
+    fontSize: 152,
+    textspacing: 5,
+    fontWeight: '600',
     color: '#FFFFFF',
-    fontFamily: Platform.OS === 'ios' ? 'SongBird-Regular' : 'SongBird-Regular',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    fontFamily: FONTS.SONGBIRD,
+    textShadowColor: 'rgba(154, 96, 96, 0.3)',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 4,
   },
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontStyle: 'italic',
     color: '#FFFFFF',
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Italic' : 'PlusJakartaSans-Italic',
+    fontFamily: FONTS.JAKARTA_ITALIC,
     textShadowColor: 'rgba(0, 0, 0, 0.3)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
@@ -160,34 +163,34 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   heading: {
-    fontSize: 24,
+    fontSize: 25,
     fontWeight: '700',
-    color: '#4B3425',
+    color: '#2E5452',
     textAlign: 'center',
     marginBottom: 30,
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Bold' : 'PlusJakartaSans-Bold',
+    fontFamily: FONTS.JAKARTA_BOLD,
   },
   input: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#e2e2e2',
     borderRadius: 25,
     paddingHorizontal: 16,
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#E0E0E0',
+    borderColor: '#2E5452',
     height: 50,
     fontSize: 16,
     color: '#333',
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Regular' : 'PlusJakartaSans-Regular',
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   forgotText: {
     fontSize: 14,
-    color: '#D2691E',
+    color: '#2E5452',
     fontWeight: '500',
     marginBottom: 20,
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Medium' : 'PlusJakartaSans-Medium',
+    fontFamily: FONTS.JAKARTA_MEDIUM,
   },
   loginBtn: {
-    backgroundColor: '#4B3425',
+    backgroundColor: '#2E5452',
     borderRadius: 25,
     height: 50,
     justifyContent: 'center',
@@ -198,14 +201,14 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: '400',
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-SemiBold' : 'PlusJakartaSans-SemiBold',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
   orLoginText: {
     textAlign: 'center',
     fontSize: 14,
-    color: '#666',
+    color: '#2E5452',
     marginBottom: 30,
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Regular' : 'PlusJakartaSans-Regular',
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   socialRow: {
     flexDirection: 'row',
@@ -216,7 +219,7 @@ const styles = StyleSheet.create({
   socialBtn: {
     width: 60,
     height: 60,
-    backgroundColor: '#E8E8E0',
+    backgroundColor: '#e2e2e2',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
@@ -229,11 +232,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     color: '#666',
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-Regular' : 'PlusJakartaSans-Regular',
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   signUpLink: {
-    color: '#D2691E',
+    color: '#2E5452',
     fontWeight: '600',
-    fontFamily: Platform.OS === 'ios' ? 'PlusJakartaSans-SemiBold' : 'PlusJakartaSans-SemiBold',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
 });

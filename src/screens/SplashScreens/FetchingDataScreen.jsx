@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, Text, StyleSheet, View, Platform } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const FetchingDataScreen = ({ navigation }) => {
   const fade = useRef(new Animated.Value(0)).current;
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
   textstyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'PlusJakartaSans-Bold',
+    fontFamily: FONTS.JAKARTA_BOLD,
     fontSize: 40,
     fontWeight: '700',
     fontStyle: 'normal',

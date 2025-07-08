@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const SignUpScreen = ({ navigation }) => {
   const [isValidEmail, setIsValidEmail] = useState(true);
 
   return (
     <View style={styles.container}>
-      {/* Header with logo */}
-      <View style={styles.header}>
-        <Image 
-          source={require('../../../assets/icons/logotransparent.png')} 
-          style={styles.logo} 
-        />
-      </View>
+      {/* Header with texture background */}
+      <ImageBackground
+        source={require('../../../assets/icons/texture.png')}
+        style={styles.header}
+        resizeMode="cover"
+      >
+        <Text style={styles.headerTitle}>Join Us!</Text>
+        <Text style={styles.welcomeText}>Create your MoodBro account</Text>
+      </ImageBackground>
 
-      {/* Content */}
+      {/* Content with border that matches texture curves */}
       <View style={styles.content}>
-        <Text style={styles.heading}>Sign Up For Free</Text>
+        <View style={styles.contentInner}>
+          <Text style={styles.heading}>Sign Up For Free</Text>
 
         <Text style={styles.label}>Email Address</Text>
         <View style={[styles.inputContainer, !isValidEmail && styles.errorContainer]}>
@@ -77,6 +81,7 @@ const SignUpScreen = ({ navigation }) => {
             Already have an account? <Text style={styles.linkBold}>Sign In.</Text>
           </Text>
         </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -89,45 +94,84 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5F5F0',
   },
-  header: {
-    backgroundColor: '#9BB068',
-    height: 180,
-    borderBottomLeftRadius: 150,
-    borderBottomRightRadius: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  logo: {
-    width: 60,
-    height: 60,
-    tintColor: '#FFFFFF',
-  },
-  content: {
-    paddingHorizontal: 24,
+ header: {
+     height: 350,
+     // borderBottomLeftRadius: 250,
+     // borderBottomRightRadius: 150,
+     justifyContent: 'center',
+     alignItems: 'center',
+     marginBottom: -50, // Negative margin to overlap with content
+     overflow: 'hidden',
+     zIndex: 1,
+   },
+   headerTitle: {
+     fontSize: 152,
+     textspacing: 5,
+     fontWeight: '600',
+     color: '#FFFFFF',
+     fontFamily: FONTS.SONGBIRD,
+     textShadowColor: 'rgba(154, 96, 96, 0.3)',
+     textShadowOffset: { width: 2, height: 2 },
+     textShadowRadius: 4,
+   },
+  welcomeText: {
+     fontSize: 20,
+     fontStyle: 'italic',
+     color: '#FFFFFF',
+     marginTop: 10,
+     fontFamily: FONTS.JAKARTA_ITALIC,
+     textShadowColor: 'rgba(0, 0, 0, 0.3)',
+     textShadowOffset: { width: 1, height: 1 },
+     textShadowRadius: 3,
+   },
+   content: {
     flex: 1,
+    // paddingTop: 40, // Space from header
+    zIndex: 2,
   },
-  heading: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#4B3425',
-    textAlign: 'center',
-    marginBottom: 30,
-  },
+  contentInner: {
+      flex: 1,
+      backgroundColor: '#FFFFFF',
+      borderTopLeftRadius: 50, // Match header's bottom left radius
+      borderTopRightRadius: 50, // Match header's bottom right radius
+      paddingHorizontal: 25,
+      paddingTop: 50,
+      // Border that follows the curved edge
+      borderTopWidth: 3,
+      borderLeftWidth: 3,
+      borderRightWidth: 3,
+      borderBottomWidth:3,
+      borderColor: '#6F7D6A',
+      // Shadow for better definition
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: -2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    heading: {
+      fontSize: 25,
+      fontWeight: '700',
+      color: '#2E5452',
+      textAlign: 'center',
+      marginBottom: 30,
+      fontFamily: FONTS.JAKARTA_BOLD,
+    },
   label: {
     fontSize: 14,
-    color: '#4B3425',
+    color: 'black',
     marginBottom: 8,
     fontWeight: '500',
+    fontFamily: FONTS.JAKARTA_MEDIUM,
   },
   inputContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#e2e2e2',
     borderRadius: 25,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
     marginBottom: 20,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: '#9BB068',
     height: 50,
   },
@@ -143,14 +187,15 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: '#333',
+    color: '#2E5452',
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   dropdownIcon: {
     fontSize: 16,
-    color: '#999',
+    color: '#2E5452',
   },
   eyeIcon: {
-    fontSize: 18,
+    fontSize: 15,
   },
   errorAlert: {
     backgroundColor: '#FFD4D4',
@@ -170,6 +215,7 @@ const styles = StyleSheet.create({
     color: '#FF6B6B',
     fontSize: 14,
     fontWeight: '500',
+    fontFamily: FONTS.JAKARTA_MEDIUM,
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -180,13 +226,15 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 4,
-    backgroundColor: '#9BB068',
+    backgroundColor: '#FFFFFF',
+    borderBlockColor: '#2E5452',
+    borderWidth: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
   },
   checkmark: {
-    color: '#FFFFFF',
+    color: '#2E5452',
     fontSize: 12,
     fontWeight: 'bold',
   },
@@ -194,13 +242,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     flex: 1,
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   linkText: {
-    color: '#9BB068',
+    color: '#2E5452',
     fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
   signUpBtn: {
-    backgroundColor: '#4B3425',
+    backgroundColor: '#2E5452',
     borderRadius: 25,
     height: 50,
     justifyContent: 'center',
@@ -211,14 +261,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
   bottomLinkText: {
     textAlign: 'center',
     fontSize: 14,
     color: '#666',
+    fontFamily: FONTS.JAKARTA_REGULAR,
   },
   linkBold: {
-    color: '#D2691E',
+    color: '#2E5452',
     fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
 });

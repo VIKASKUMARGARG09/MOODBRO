@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const Onboarding1 = ({ navigation }) => (
   <View style={styles.container}>
@@ -57,8 +58,8 @@ const styles = StyleSheet.create({
   title: {
     width: 343,
     marginTop: 10,
-    fontFamily: 'Urbanist',
-    fontSize: 40,
+    fontFamily: FONTS.SONGBIRD,
+    fontSize: 44,
     color: '#4B3425',
     fontWeight: 'bold',
     fontStyle: 'normal',
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     width: 250,
     marginTop: 10,
     height: 58,
-    fontFamily: 'Urbanist',
+    fontFamily: FONTS.JAKARTA_MEDIUM,
     fontSize: 20,
     fontStyle: 'italic',
     letterSpacing: 1.5,
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   buttonText: {
-    fontFamily: 'Urbanist',
+    fontFamily: FONTS.JAKARTA_BOLD,
     fontSize: 20,
     fontWeight: '700',
     fontStyle: 'normal',
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     width: 250,
     marginTop: 25,
     height: 58,
-    fontFamily: 'Urbanist',
+    fontFamily: FONTS.JAKARTA_REGULAR,
     fontSize: 16,
     fontStyle: 'italic',
     letterSpacing: 1.25,

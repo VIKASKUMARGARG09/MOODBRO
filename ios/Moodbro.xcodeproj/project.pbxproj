@@ -25,6 +25,7 @@
 		E06FF14A42E0404AA1D1B4A4 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16C6FC39EE5469989621257 /* PlusJakartaSans-Regular.ttf */; };
 		BE8EAA854D6744F7B6344836 /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 562F7CFF40F44D34BBA3D8E8 /* PlusJakartaSans-SemiBold.ttf */; };
 		81F44A0AADE8461683FAD6F8 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3687F236404044FF9460FD8F /* PlusJakartaSans-SemiBoldItalic.ttf */; };
+		9FBDB01395F14B7281C27971 /* Songbird.otf in Resources */ = {isa = PBXBuildFile; fileRef = 177E78090D994AF1B6799962 /* Songbird.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F16C6FC39EE5469989621257 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Regular.ttf"; path = "../assets/fonts/PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		562F7CFF40F44D34BBA3D8E8 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-SemiBold.ttf"; path = "../assets/fonts/PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3687F236404044FF9460FD8F /* PlusJakartaSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-SemiBoldItalic.ttf"; path = "../assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		177E78090D994AF1B6799962 /* Songbird.otf */ = {isa = PBXFileReference; name = "Songbird.otf"; path = "../assets/fonts/Songbird.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				F16C6FC39EE5469989621257 /* PlusJakartaSans-Regular.ttf */,
 				562F7CFF40F44D34BBA3D8E8 /* PlusJakartaSans-SemiBold.ttf */,
 				3687F236404044FF9460FD8F /* PlusJakartaSans-SemiBoldItalic.ttf */,
+				177E78090D994AF1B6799962 /* Songbird.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E06FF14A42E0404AA1D1B4A4 /* PlusJakartaSans-Regular.ttf in Resources */,
 				BE8EAA854D6744F7B6344836 /* PlusJakartaSans-SemiBold.ttf in Resources */,
 				81F44A0AADE8461683FAD6F8 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */,
+				9FBDB01395F14B7281C27971 /* Songbird.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

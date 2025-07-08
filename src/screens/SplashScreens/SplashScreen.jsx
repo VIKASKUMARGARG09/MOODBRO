@@ -1,6 +1,7 @@
 // src/screens/SplashScreen.jsx
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Image, Animated } from 'react-native';
+import FONTS from '../../constants/fonts';
 
 const SplashScreen = ({ navigation }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity 0
@@ -63,11 +64,11 @@ const styles = StyleSheet.create({
   },
   quote: {
     width: 400,
-    fontFamily: 'plusJakartaSans, System',
-    fontSize: 24,
+    fontFamily: FONTS.SONGBIRD,
+    fontSize: 28,
     fontStyle: 'italic',
-    lineHeight: 32,
-    letterSpacing: -2,
+    lineHeight: 36,
+    letterSpacing: -1,
     textAlign: 'center',
     color: '#B4C48D',
   },

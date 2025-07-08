@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FONTS from '../../constants/fonts';
 
 const { height } = Dimensions.get('window');
 
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 32,
     letterSpacing: 0.5,
-    fontFamily: 'Urbanist',
+    fontFamily: FONTS.JAKARTA_BOLD,
     marginTop: 5,
   },
   titleOrange: {
