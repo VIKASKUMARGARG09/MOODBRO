@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { useEffect } from 'react';
+// import React from 'react';
+// import { View, Text, StyleSheet, Image } from 'react-native';
+// import { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Image, Animated } from 'react-native';
+import { View, Text, StyleSheet, Image, Animated, Platform } from 'react-native';
 
 const QuoteScreen = () => {
   // Animation refs
@@ -21,15 +21,9 @@ const QuoteScreen = () => {
     new Animated.Value(0), // Circle 9
   ]).current;
 
-  // Circle configurations - moved outside return
-
   const navigation = useNavigation();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.navigate('Onboarding1');
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, [navigation]);
+  
+  // Circle configurations
   const circles = [
     // Large circles
     { width: 200, height: 200, top: -100, left: -80, opacity: 0.3 },
@@ -40,25 +34,19 @@ const QuoteScreen = () => {
     // Medium circles
     { width: 120, height: 120, top: '20%', left: -40, opacity: 0.3 },
     { width: 140, height: 140, top: '30%', right: -50, opacity: 0.3 },
-    // { width: 100, height: 100, bottom: '25%', left: -30, opacity: 0.6 },
-    // { width: 130, height: 130, bottom: '35%', right: -45, opacity: 0.3 },
-
     
     // Small circles
-    // { width: 80, height: 80, top: '60%', left: 50, opacity: 0.7 },
-    { width: 70, height: 70, top: '15%', right: '45%', opacity: 0.3 },
     { width: 70, height: 70, top: '15%', right: "45%", opacity: 0.3 },
     { width: 90, height: 90, bottom: '15%', left: 70, opacity: 0.4 },
     { width: 70, height: 70, top: '75%', right: 60, opacity: 0.6 },
-
-    // Additional random circles
-    // { width: 50, height: 50, top: '45%', left: -20, opacity: 0.8 },
-    // { width: 110, height: 110, top: '80%', left: -50, opacity: 0.25 },
-    // { width: 75, height: 75, bottom: '50%', right: -30, opacity: 0.6 },
-  ];
   ];
 
   useEffect(() => {
+    // Navigation timer
+    const timer = setTimeout(() => {
+      navigation.navigate('Onboarding1');
+    }, 2500);
+
     // Start content animation sequence
     Animated.sequence([
       // Fade in and scale up content
@@ -86,7 +74,9 @@ const QuoteScreen = () => {
         )
       )
     ]).start();
-  }, [fadeAnim, scaleAnim, circleAnims]);
+
+    return () => clearTimeout(timer);
+  }, [fadeAnim, scaleAnim, circleAnims, navigation]);
 
   return (
     <View style={styles.container}>
@@ -127,12 +117,6 @@ const QuoteScreen = () => {
         />
       ))}
 
-      {/* Content */}
-      <Image
-        source={require('../../../assets/images/image.png')}
-        style={styles.logo}
-      
-      {/* Content with smooth entrance animation */}
       <Animated.Image
         source={require('../../../assets/images/logo.png')}
         style={[
@@ -212,7 +196,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     color: '#FFFFFF',
-    zIndex: 5,
     zIndex: 10,
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 4 },
@@ -221,9 +204,7 @@ const styles = StyleSheet.create({
   },
   quote: {
     width: '90%',
-    fontFamily: 'Urbanist',
-    width: 400,
-    fontFamily: 'plusJakartaSans, System',
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     fontSize: 28,
     fontWeight: '600',
     fontStyle: 'italic',
@@ -231,14 +212,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: 'center',
     color: '#FFFFFF',
-    zIndex: 1,
     zIndex: 10,
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
     textShadowOffset: { width: 1, height: 2 },
     textShadowRadius: 6,
   },
   author: {
-    fontFamily: 'plusJakartaSans, System',
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     fontSize: 16,
     fontStyle: 'italic',
     fontWeight: '600',
@@ -255,13 +235,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#B4C48D',
     position: 'absolute',
     zIndex: 1,
-  },
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.25,
     shadowRadius: 12,
     elevation: 8,
-  }
+  },
 });
 
 export default QuoteScreen;
