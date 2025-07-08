@@ -1,23 +1,53 @@
 // src/screens/SplashScreen.jsx
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Image, Animated } from 'react-native';
 
 const SplashScreen = ({ navigation }) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity 0
+
   useEffect(() => {
     console.log('SplashScreen mounted');
-    const timer = setTimeout(() => navigation.navigate('FetchingData'), 1500);
+    
+    // Start fade in animation
+    Animated.sequence([
+      // Fade in
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 1500, // 1.5 seconds fade in
+        useNativeDriver: true,
+      }),
+      // Hold for a moment
+      Animated.delay(1000), // Hold for 1 second
+      // Fade out
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 1500, // 1.5 seconds fade out
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Navigate after total animation time
+    const timer = setTimeout(() => navigation.navigate('FetchingData'), 4500); // 1.5s + 1s + 1.5s + 0.5s buffer
     return () => clearTimeout(timer);
-  }, [navigation]);
+  }, [navigation, fadeAnim]);
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../../assets/images/image.png')}  // adjust this path to your actual location
-        style={styles.logo}
+      <Animated.Image
+        source={require('../../../assets/images/logo.png')}
+        style={[styles.logo, { opacity: fadeAnim }]}
         resizeMode="contain"
       />
-
-      {/* <Text style={styles.text}>🌞 SplashScreen is alive!</Text> */}
+      <Animated.Text 
+        style={[
+          styles.quote,
+          {
+            opacity: fadeAnim,
+          }
+        ]}
+      >
+        "Decode your feels. Upgrade your flow."
+      </Animated.Text>
     </View>
   );
 };
@@ -25,27 +55,27 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#FFA726',
     justifyContent: 'center',
     alignItems: 'center',
     width: "100%",
-		height: "100%",
-    // justifyContent: 'center',
-    // alignItems: 'center', 
-		backgroundColor: "#F7F4F2",
-		// marginRight: 48,
-		borderRadius: 40,
+    height: "100%",
+    backgroundColor: "#2E5452",
   },
-  text: {
+  quote: {
+    width: 400,
+    fontFamily: 'plusJakartaSans, System',
     fontSize: 24,
-    color: '#fff',
+    fontStyle: 'italic',
+    lineHeight: 32,
+    letterSpacing: -2,
+    textAlign: 'center',
+    color: '#B4C48D',
   },
-  logo:{
-    width: 123,
-		height: 119,
-		marginTop: 302,
-		marginBottom: 312,
-		marginHorizontal: 150,
+  logo: {
+    width: 200,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 
