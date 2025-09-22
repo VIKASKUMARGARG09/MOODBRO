@@ -81,6 +81,15 @@ const SignUpScreen = ({ navigation }) => {
             Already have an account? <Text style={styles.linkBold}>Sign In.</Text>
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.chatbotLink} 
+          onPress={() => navigation.navigate('ChatbotWelcome')}
+        >
+          <Text style={styles.chatbotText}>
+            Try Chatbot Dashboard
+          </Text>
+        </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -271,6 +280,20 @@ const styles = StyleSheet.create({
   },
   linkBold: {
     color: '#2E5452',
+    fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
+  },
+  chatbotLink: {
+    alignItems: 'center',
+    marginTop: 15,
+    paddingVertical: 10,
+    backgroundColor: '#4caf50',
+    borderRadius: 8,
+    marginHorizontal: 20,
+  },
+  chatbotText: {
+    color: '#FFFFFF',
+    fontSize: 14,
     fontWeight: '600',
     fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },

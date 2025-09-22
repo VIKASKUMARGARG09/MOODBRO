@@ -26,7 +26,7 @@ const FindFelloLogin = ({ navigation }) => {
     // Dummy authentication check
     if (email === 'test@example.com' && password === 'password123') {
       Alert.alert('Success', 'Login successful');
-      // navigation.navigate('HomeScreen'); // Navigate if needed
+      navigation.navigate('SubscriptionScreen'); // Redirect to SubscriptionScreen after login
     } else {
       Alert.alert('Error', 'Invalid credentials');
     }
@@ -76,6 +76,14 @@ const FindFelloLogin = ({ navigation }) => {
             <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
 
+          {/* Button to go directly to SubscriptionScreen */}
+          <TouchableOpacity 
+            style={[styles.loginBtn, { backgroundColor: '#388e3c', marginTop: 10 }]}
+            onPress={() => navigation.navigate('SubscriptionScreen')}
+          >
+            <Text style={styles.loginText}>Go to Subscription</Text>
+          </TouchableOpacity>
+
           <Text style={styles.orLoginText}>Or Login with</Text>
 
           <View style={styles.socialRow}>
@@ -93,6 +101,15 @@ const FindFelloLogin = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
             <Text style={styles.signUpText}>
               Don't have an account? <Text style={styles.signUpLink}>Sign Up</Text>
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.chatbotLink} 
+            onPress={() => navigation.navigate('ChatbotWelcome')}
+          >
+            <Text style={styles.chatbotText}>
+              Try Chatbot Dashboard
             </Text>
           </TouchableOpacity>
         </View>
@@ -236,6 +253,20 @@ const styles = StyleSheet.create({
   },
   signUpLink: {
     color: '#2E5452',
+    fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
+  },
+  chatbotLink: {
+    alignItems: 'center',
+    marginTop: 15,
+    paddingVertical: 10,
+    backgroundColor: '#4caf50',
+    borderRadius: 8,
+    marginHorizontal: 20,
+  },
+  chatbotText: {
+    color: '#FFFFFF',
+    fontSize: 14,
     fontWeight: '600',
     fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },

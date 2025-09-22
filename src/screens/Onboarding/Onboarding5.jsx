@@ -34,12 +34,21 @@ const Onboarding5 = ({ navigation }) => {
           </Text>
         </View>
 
-        <TouchableOpacity 
-          style={styles.button} 
-          onPress={() => navigation.navigate('SignInScreen')}
-        >
-          <Text style={styles.arrow}>→</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => navigation.navigate('SignInScreen')}
+          >
+            <Text style={styles.arrow}>→</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={styles.chatbotButton} 
+            onPress={() => navigation.navigate('ChatbotWelcome')}
+          >
+            <Text style={styles.chatbotButtonText}>Try Chatbot</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -126,11 +135,13 @@ const styles = StyleSheet.create({
   titlePurple: {
     color: '#8B5A9F',
   },
-  button: {
+  buttonContainer: {
     position: 'absolute',
-    bottom: 140,
-    left: '55%',
-    marginLeft: -37.5,
+    bottom: 80,
+    width: '100%',
+    alignItems: 'center',
+  },
+  button: {
     backgroundColor: '#8B5A9F',
     width: 75,
     height: 75,
@@ -145,6 +156,27 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
+    marginBottom: 10,
+  },
+  chatbotButton: {
+    backgroundColor: '#4caf50',
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 20,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  chatbotButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+    fontFamily: FONTS.JAKARTA_SEMIBOLD,
   },
   arrow: {
     fontSize: 45,

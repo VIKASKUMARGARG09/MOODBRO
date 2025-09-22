@@ -13,7 +13,10 @@ import SignInScreen from '../screens/LoginPages/SignInScreen';
 import SignUpScreen from '../screens/LoginPages/SignUpScreen';
 import ForgotPasswordScreen from '../screens/LoginPages/ForgotPasswordScreen';
 import FontTestScreen from '../screens/FontTestScreen';
-
+import SubscriptionScreen from '../screens/chatbot/SubscriptionScreen';
+import ConversationScreen from '../screens/chatbot/ConversationStartScreen'; // Mismatched name
+import MyConversation from '../screens/chatbot/MyConversation'; //Uncommented here
+import ChatScreen from '../screens/chatbot/ChatScreen'; //Uncommented here
 
 
 const Stack = createStackNavigator();
@@ -25,15 +28,18 @@ const AppNavigator = () => (
       <Stack.Screen name="FetchingData" component={FetchingDataScreen} />
       <Stack.Screen name="Quote" component={QuoteScreen} />
       <Stack.Screen name="Onboarding1" component={Onboarding1} />
-<Stack.Screen name="Onboarding2" component={Onboarding2} />
-<Stack.Screen name="Onboarding3" component={Onboarding3} />
-<Stack.Screen name="Onboarding4" component={Onboarding4} />
-<Stack.Screen name="Onboarding5" component={Onboarding5} />
-<Stack.Screen name="SignInScreen" component={SignInScreen} />
-<Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-<Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
-<Stack.Screen name="FontTest" component={FontTestScreen} />
-
+      <Stack.Screen name="Onboarding2" component={Onboarding2} />
+      <Stack.Screen name="Onboarding3" component={Onboarding3} />
+      <Stack.Screen name="Onboarding4" component={Onboarding4} />
+      <Stack.Screen name="Onboarding5" component={Onboarding5} />
+      <Stack.Screen name="SignInScreen" component={SignInScreen} />
+      <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
+      <Stack.Screen name="FontTest" component={FontTestScreen} />
+      <Stack.Screen name="SubscriptionScreen" component={SubscriptionScreen} />
+    <Stack.Screen name="ConversationScreen" component={ConversationScreen} />
+  <Stack.Screen name="MyConversation" component={MyConversation} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen} /> 
     </Stack.Navigator>
   </NavigationContainer>
 );
