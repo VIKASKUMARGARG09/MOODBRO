@@ -10,20 +10,21 @@ import {
 } from 'react-native';
 import FONTS from '../../constants/fonts';
 
-const FindFelloLogin = ({ navigation }) => {
+const ChooseLoginMethod = ({ navigation }) => {
+  // Update these handler functions
   const handleGoogleLogin = () => {
-    // Implement Google login functionality
-    Alert.alert('Google Login', 'Google login functionality will be implemented here');
+    // Navigate to sign in screen
+    navigation.navigate('SignInScreen');
   };
 
   const handleEmailLogin = () => {
-    // Navigate to email login screen or expand this component
-    Alert.alert('Email Login', 'Email login functionality will be implemented here');
+    // Navigate to sign up screen
+    navigation.navigate('SignUpScreen');
   };
 
-  const handleSignUp = () => {
-    // Navigate to the sign up page
-    navigation.navigate('SignUpScreen');
+  const handleLogIn = () => {
+    // Navigate to the login page
+    navigation.navigate('LoginDetailsScreen'); // Create this screen for email/password input
   };
 
   return (
@@ -65,25 +66,17 @@ const FindFelloLogin = ({ navigation }) => {
           style={styles.loginButton} 
           onPress={handleGoogleLogin}
         >
-          <Image 
-            source={require('../../../assets/icons/google.png')} 
-            style={styles.buttonIcon} 
-          />
-          <Text style={styles.buttonText}>Continue with Google</Text>
+          <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
           style={styles.loginButton} 
           onPress={handleEmailLogin}
         >
-          <Image 
-            source={require('../../../assets/icons/lock.png')} 
-            style={styles.buttonIcon}
-          />
-          <Text style={styles.buttonText}>Continue with Email</Text>
+          <Text style={styles.buttonText}>Create a Account</Text>
         </TouchableOpacity>
 
-        {/* Subscription button (kept from original) */}
+        {/* Subscription button (kept from original)
         <TouchableOpacity 
           style={[styles.loginButton, styles.subscriptionButton]}
           onPress={() => navigation.navigate('SubscriptionScreen')}
@@ -92,18 +85,18 @@ const FindFelloLogin = ({ navigation }) => {
         </TouchableOpacity>
 
         {/* Already have account link */}
-        <View style={styles.accountContainer}>
+        {/* <View style={styles.accountContainer}>
           <Text style={styles.accountText}>Already have an account?</Text>
-          <TouchableOpacity onPress={handleSignUp}>
-            <Text style={styles.logInText}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
+          <TouchableOpacity onPress={handleLogIn}>
+            <Text style={styles.logInText}>Log in</Text>
+          </TouchableOpacity> 
+        </View>*/}
       </View>
     </SafeAreaView>
   );
 };
 
-export default FindFelloLogin;
+export default ChooseLoginMethod;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import ChooseLoginMethod from '../screens/LoginPages/ChooseLoginMethod';
 import SplashScreen from '../screens/SplashScreens/SplashScreen';
 import FetchingDataScreen from '../screens/SplashScreens/FetchingDataScreen';
 import QuoteScreen from '../screens/SplashScreens/QuoteScreen';
 import Onboarding1 from '../screens/Onboarding/Onboarding1';
 import Onboarding2 from '../screens/Onboarding/Onboarding2';
+
 import Onboarding3 from '../screens/Onboarding/Onboarding3';
 import Onboarding4 from '../screens/Onboarding/Onboarding4';
 import Onboarding5 from '../screens/Onboarding/Onboarding5';
@@ -24,6 +27,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="ChooseLoginMethod" component={ChooseLoginMethod} />
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="FetchingData" component={FetchingDataScreen} />
       <Stack.Screen name="Quote" component={QuoteScreen} />
