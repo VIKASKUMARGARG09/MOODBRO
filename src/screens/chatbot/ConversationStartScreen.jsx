@@ -79,20 +79,43 @@ const ConversationStartScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        {/* Decorative Circles Background */}
+        {/* Enhanced Decorative Circles Background */}
         <View style={styles.circlesContainer} pointerEvents="none">
-          {/* Large circles */}
+          {/* Additional circles for top area */}
+          
+          {/* <View style={[styles.circle, styles.darkGreenCircle, { top: '-5%', right: '25%', width: 90, height: 90 }]} /> */}
+          {/* <View style={[styles.circle, styles.lightGreenCircle, { top: '-10%', left: '30%', width: 120, height: 120 }]} /> */}
+          <View style={[styles.circle, styles.mediumGreenCircle, { top: '5%', right: '30%', width: 60, height: 60 }]} />
+          <View style={[styles.outlinedCircle, { top: '7%', left: '40%', width: 70, height: 70 }]} />
+          {/* <View style={[styles.circle, styles.lightGrayCircle, { top: '13%', left: '30%', width: 40, height: 40 }]} /> */}
+          <View style={[styles.outlinedCircle, { top: '25%', right: '30%', width: 90, height: 90 }]} />
+          
+          {/* Original circles - repositioned for better coverage */}
           <View style={[styles.circle, styles.darkGreenCircle, { top: '10%', right: '5%', width: 100, height: 100 }]} />
           <View style={[styles.circle, styles.lightGreenCircle, { top: '5%', left: '5%', width: 80, height: 80 }]} />
-          <View style={[styles.circle, styles.darkGreenCircle, { bottom: '25%', left: '10%', width: 120, height: 120 }]} />
-          <View style={[styles.circle, styles.mediumGreenCircle, { bottom: '15%', right: '15%', width: 100, height: 100 }]} />
-          <View style={[styles.circle, styles.lightGrayCircle, { bottom: '8%', right: '30%', width: 50, height: 50 }]} />
+          <View style={[styles.circle, styles.lightGreenCircle, { bottom: '25%', right: '5%', width: 100, height: 100 }]} />
+          <View style={[styles.circle, styles.lightGreenCircle, { top: '5%', left: '5%', width: 80, height: 80 }]} />
+          <View style={[styles.circle, styles.darkGreenCircle, { bottom: '30%', left: '10%', width: 120, height: 120 }]} />
+          {/* <View style={[styles.circle, styles.mediumGreenCircle, { bottom: '15%', right: '15%', width: 100, height: 100 }]} /> */}
+          {/* <View style={[styles.circle, styles.lightGrayCircle, { bottom: '8%', right: '30%', width: 50, height: 50 }]} /> */}
           
-          {/* Outlined circles */}
+          {/* Additional middle area circles */}
+          <View style={[styles.circle, styles.lightGreenCircle, { top: '35%', right: '15%', width: 70, height: 70, opacity: 0.7 }]} />
+          {/* <View style={[styles.outlinedCircle, { top: '45%', left: '35%', width: 60, height: 60 }]} /> */}
+          <View style={[styles.circle, styles.lightGrayCircle, { top: '55%', right: '45%', width: 45, height: 45 }]} />
+          {/* <View style={[styles.outlinedCircle, { top: '32%', left: '5%', width: 70, height: 70 }]} /> */}
+          <View style={[styles.circle, styles.darkGreenCircle, { top: '32%', right: '8%', width: 85, height: 85 }]} />
+          <View style={[styles.circle, styles.lightGreenCircle, { top: '45%', left: '25%', width: 50, height: 50, opacity: 0.7 }]} />
+          <View style={[styles.outlinedCircle, { top: '48%', right: '28%', width: 65, height: 65 }]} />
+          <View style={[styles.circle, styles.darkGreenCircle, { top: '10%', left: '-5%', width: 140, height: 140 }]} />
+          <View style={[styles.outlinedCircle, { top: '40%', right: '-10%', width: 120, height: 120 }]} />
+           {/* <View style={[styles.circle, styles.mediumGreenCircle, { top: '50%', left: '50%', width: 45, height: 45 }]} /> */}
+          <View style={[styles.circle, styles.darkGreenCircle, { top: '55%', right: '38%', width: 50, height: 50 }]} />
+          {/* Original outlined circles */}
           <View style={[styles.outlinedCircle, { top: '15%', right: '15%', width: 60, height: 60 }]} />
           <View style={[styles.outlinedCircle, { top: '20%', left: '20%', width: 80, height: 80 }]} />
           <View style={[styles.outlinedCircle, { top: '40%', left: '5%', width: 100, height: 100 }]} />
-          <View style={[styles.outlinedCircle, { bottom: '5%', left: '10%', width: 130, height: 130 }]} />
+          {/* <View style={[styles.outlinedCircle, { bottom: '5%', left: '10%', width: 130, height: 130 }]} /> */}
         </View>
 
         {/* Content Area - Positioned in the bottom part */}
@@ -142,6 +165,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    overflow: 'hidden',
   },
   circle: {
     position: 'absolute',
