@@ -63,7 +63,7 @@ const ChooseLoginMethod = ({ navigation }) => {
 
         {/* Login buttons */}
         <TouchableOpacity 
-          style={styles.loginButton} 
+          style={styles.loginButton1} 
           onPress={handleGoogleLogin}
         >
           <Text style={styles.buttonText}>Sign In</Text>
@@ -73,7 +73,7 @@ const ChooseLoginMethod = ({ navigation }) => {
           style={styles.loginButton} 
           onPress={handleEmailLogin}
         >
-          <Text style={styles.buttonText}>Create a Account</Text>
+          <Text style={styles.buttonText}>Create an Account</Text>
         </TouchableOpacity>
 
         {/* Subscription button (kept from original)
@@ -82,7 +82,7 @@ const ChooseLoginMethod = ({ navigation }) => {
           onPress={() => navigation.navigate('SubscriptionScreen')}
         >
           <Text style={styles.subscriptionButtonText}>Go to Subscription</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Already have account link */}
         {/* <View style={styles.accountContainer}>
@@ -232,7 +232,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: '#CCCCCC',
+    borderColor: '#2E5452',
+    borderRadius: 25,
+    height: 54,
+    marginBottom: 16,
+    paddingHorizontal: 16,
+  },
+  loginButton1: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#2E5452',
     borderRadius: 25,
     height: 54,
     marginBottom: 16,
@@ -242,6 +254,11 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     marginRight: 12,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#333333',
+    fontFamily: FONTS.JAKARTA_MEDIUM,
   },
   buttonText: {
     fontSize: 16,

@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar, Image } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons'; // Add this import
 import { Svg, Circle } from 'react-native-svg'; // Using react-native-svg for the background circles
 
 const MyConversation = ({ navigation }) => {
@@ -23,7 +22,10 @@ const MyConversation = ({ navigation }) => {
           {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+            <Image 
+              source={require('../../../assets/icons/back.png')} 
+              style={styles.actionCenterIcon} 
+            />
             </TouchableOpacity>
             <Text style={styles.headerTitle}>My Conversations</Text>
             <View style={styles.badge}>
@@ -37,13 +39,22 @@ const MyConversation = ({ navigation }) => {
             <Text style={styles.totalConversationsLabel}>Total Conversations</Text>
             <View style={styles.subStatsContainer}>
               <View style={styles.subStat}>
-                <Feather name="link-2" size={20} color="#FFFFFF" style={{ opacity: 0.8 }} />
-                <Text style={styles.subStatValue}>32</Text>
+                <TouchableOpacity style={styles.actionButton}>
+            <Image 
+              source={require('../../../assets/icons/stats.png')} 
+              style={styles.actionIcon} 
+            />
+          </TouchableOpacity>
+          <Text style={styles.subStatValue}>32</Text>
                 <Text style={styles.subStatLabel}>Left this month</Text>
               </View>
               <View style={styles.subStat}>
-                <Ionicons name="stats-chart" size={20} color="#FFFFFF" style={{ opacity: 0.8 }} />
-                <Text style={styles.subStatValue}>Slow</Text>
+                <TouchableOpacity style={styles.actionButton}>
+            <Image 
+              source={require('../../../assets/icons/robo.png')} 
+              style={styles.actionIcon} 
+            />
+          </TouchableOpacity><Text style={styles.subStatValue}>Slow</Text>
                 <Text style={styles.subStatLabel}>Response & Support</Text>
               </View>
             </View>
@@ -53,16 +64,26 @@ const MyConversation = ({ navigation }) => {
         {/* Action Buttons (overlapping) */}
         <View style={styles.actionButtonsContainer}>
           <TouchableOpacity style={styles.actionButton}>
-            <Ionicons name="options-outline" size={24} color="#2A5350" />
+            <Image 
+              source={require('../../../assets/icons/controls.png')} 
+              style={styles.actionIcon} 
+            />
           </TouchableOpacity>
+          
           <TouchableOpacity
             style={styles.actionButtonCenter}
             onPress={() => navigation.navigate('ChatScreen')}
           >
-            <AntDesign name="plus" size={32} color="#FFFFFF" />
+            <Image 
+              source={require('../../../assets/icons/plus.png')} 
+              style={styles.actionCenterIcon} 
+            />
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton}>
-            <Ionicons name="settings-outline" size={24} color="#2A5350" />
+            <Image 
+              source={require('../../../assets/icons/settings.png')} 
+              style={styles.actionIcon} 
+            />
           </TouchableOpacity>
         </View>
 
@@ -106,6 +127,7 @@ const styles = StyleSheet.create({
   },
   upperContainer: {
     backgroundColor: '#2A5350',
+    paddingTop: 50,
     paddingHorizontal: 20,
     paddingBottom: 60, // Space for the overlapping buttons
     overflow: 'hidden',
@@ -187,21 +209,23 @@ const styles = StyleSheet.create({
   },
   actionButtonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around', // Change from 'center' to 'space-around'
     alignItems: 'flex-start',
-    marginTop: -35, // Pulls the buttons up to overlap
+    marginTop: -35,
     zIndex: 1,
+    width: '100%', // Add this to ensure full width
+    paddingHorizontal: 20, // Add some horizontal padding
   },
   actionButton: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#2A5350',
     width: 50,
     height: 50,
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20,
+    marginHorizontal: 30, // Increase from 20 to 30 or more
     elevation: 3,
-    shadowColor: '#000',
+    shadowColor: '#FFFFFF',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -211,15 +235,26 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
-    shadowColor: '#000',
+    shadowColor: '#FFFFFF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
     borderWidth: 3,
     borderColor: '#F5F5F5'
+  },
+  actionIcon: {
+    width: 24, 
+    height: 24,
+    resizeMode: 'contain',
+  },
+  actionCenterIcon: {
+    width: 32,
+    height: 32,
+    resizeMode: 'contain',
   },
   lowerContainer: {
     flex: 1,
